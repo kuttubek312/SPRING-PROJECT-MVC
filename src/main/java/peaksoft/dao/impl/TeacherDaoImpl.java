@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class TeacherDaoImpl implements TeacherDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 

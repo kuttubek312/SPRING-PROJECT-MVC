@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class StudentDaoImpl  implements StudentDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -19,6 +20,7 @@ public class StudentDaoImpl  implements StudentDao {
         entityManager.persist(student);
         return student;
     }
+
     @Override
     public void removeStudentById(Long id) {
 

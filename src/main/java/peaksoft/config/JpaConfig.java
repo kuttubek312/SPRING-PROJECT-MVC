@@ -22,6 +22,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("peaksoft")
 public class JpaConfig {
+
     private final Environment env;
 
     public JpaConfig(Environment env) {

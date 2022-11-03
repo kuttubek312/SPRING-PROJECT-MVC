@@ -16,8 +16,11 @@ import java.util.List;
 public class GroupController {
 
     private final CompanyService companyService;
+
     private final GroupService groupService;
+
     private final CourseService courseService;
+
 
     @Autowired
     public GroupController(CompanyService companyService, GroupService groupService, CourseService courseService) {

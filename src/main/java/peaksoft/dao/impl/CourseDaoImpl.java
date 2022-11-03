@@ -10,14 +10,17 @@ import java.util.List;
 @Repository
 @Transactional
 public class CourseDaoImpl implements CourseDao {
+
     @PersistenceContext
     private EntityManager entityManager;
+
 
     @Override
     public Course saveCourse(Course course) {
         entityManager.merge(course);
         return course;
     }
+
     @Override
     public void removeCourseById(Long id) {
         entityManager.remove(getById(id));

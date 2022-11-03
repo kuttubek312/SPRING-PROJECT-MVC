@@ -8,18 +8,22 @@
 </head>
 <body>
 
-<form align="center"  action="#" th:action="@{/students/saveStudent(groupId=${param.groupId})}" th:object="${student}" method="post">
+<form align="center"  action="#" th:action="@{/students/saveStudent/(groupId=${student.groups.id})}" th:object="${student}" method="post">
 
   <input type="hidden" name="id" th:field="*{id}">
 
   <input type="text" name="firstName" th:field="*{firstName}" placeholder="FirstName">
-  <br><br>
+  <br>
+  <br>
   <input type="text" name="lastName" th:field="*{lastName}" placeholder="LastName">
-  <br><br>
+  <br>
+  <br>
   <input type="text" name="email" th:field="*{email}" placeholder="Email">
-  <br><br>
+  <br>
+  <br>
   <input type="text" name="studyFormat" th:field="*{studyFormat}" placeholder="StudyFormat">
-  <br><br>
+  <br>
+  <br>
   <input type="submit" value="Add">
 
 </form>

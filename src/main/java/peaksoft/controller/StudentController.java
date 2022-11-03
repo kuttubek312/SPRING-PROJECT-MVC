@@ -14,8 +14,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/students")
 public class StudentController {
+
     private final StudentService service;
+
     private final GroupService groupService;
+
 
     @Autowired
     public StudentController(StudentService service, GroupService groupService) {
@@ -41,16 +44,18 @@ public class StudentController {
     }
 
     @GetMapping("/newStudent")
-    public String saveStudent(@RequestParam("groupId") Long groupId,Model model) {
+    public String saveStudent(Model model) {
         model.addAttribute("student", new Student());
         return "/student/newStudent";
     }
 
-    @PostMapping("/saveStudent")
-    public String createStudent(@ModelAttribute("student") Student student, @RequestParam("groupId") Long courseId) {
-        student.setGroups(groupService.getById(courseId));
+    @PostMapping("/saveStudent/{groupId}")
+    public String createStudent(@ModelAttribute("student") Student student, @PathVariable Long groupId) {
+        System.out.println("before saveStudent");
+        student.setGroups(groupService.getById(groupId));
         service.saveStudent(student);
-        return "redirect:/students?groupId="+courseId;
+        System.out.println("after saveStudent");
+        return "redirect:/students?groupId="+groupId;
     }
 
     @GetMapping("/{id}/edit")

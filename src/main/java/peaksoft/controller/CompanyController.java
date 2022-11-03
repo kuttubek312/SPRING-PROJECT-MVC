@@ -9,6 +9,7 @@ import peaksoft.service.CompanyService;
 
 @Controller
 public class CompanyController {
+
     private final CompanyService service;
 
     @Autowired
@@ -51,5 +52,4 @@ public class CompanyController {
         service.removeCompanyById(id);
         return "redirect:/";
     }
-
 }

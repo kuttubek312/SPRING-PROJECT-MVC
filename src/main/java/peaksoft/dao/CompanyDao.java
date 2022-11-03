@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface CompanyDao {
 
-
     Company saveCompany(Company company);
 
     void removeCompanyById(Long id);

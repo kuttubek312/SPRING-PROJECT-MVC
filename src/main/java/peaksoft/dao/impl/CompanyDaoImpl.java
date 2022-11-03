@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class CompanyDaoImpl implements CompanyDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 

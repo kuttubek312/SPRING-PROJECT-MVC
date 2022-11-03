@@ -13,7 +13,9 @@ import java.util.List;
 @Controller
 @RequestMapping("courses")
 public class CourseController {
+
     private final CourseService service;
+
     private final CompanyService companyService;
 
     @Autowired
@@ -70,5 +72,4 @@ public class CourseController {
         service.removeCourseById(id);
         return "redirect:/courses?companyId=" + companyId;
     }
-
 }

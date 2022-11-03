@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class GroupDaoImpl  implements GroupDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -19,6 +20,7 @@ public class GroupDaoImpl  implements GroupDao {
         entityManager.merge(group);
         return group;
     }
+
     @Override
     public void removeGroupById(Long id) {
         entityManager.remove(getById(id));
