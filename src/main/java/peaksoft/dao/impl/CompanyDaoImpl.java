@@ -1,4 +1,5 @@
 package peaksoft.dao.impl;
+
 import org.springframework.stereotype.Repository;
 import peaksoft.dao.CompanyDao;
 import peaksoft.model.Company;
@@ -19,6 +20,7 @@ public class CompanyDaoImpl implements CompanyDao {
         entityManager.persist(company);
         return company;
     }
+
     @Override
     public void removeCompanyById(Long id) {
         entityManager.remove(getById(id));
@@ -33,7 +35,7 @@ public class CompanyDaoImpl implements CompanyDao {
     }
     @Override
     public void update(Long id, Company company) {
-        Company company1=getById(id);
+        Company company1 = getById(id);
         company1.setCompanyName(company.getCompanyName());
         company1.setLocatedCountry(company.getLocatedCountry());
         entityManager.merge(company1);

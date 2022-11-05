@@ -37,25 +37,24 @@ public class StudentController {
             }
         }
         catch(NullPointerException e){
-            System.out.println("It is empty!");
+            System.out.println("It is empty");
         }
         model.addAttribute("students", students);
         return "/student/student-page";
     }
 
+
     @GetMapping("/newStudent")
-    public String saveStudent(Model model) {
+    public String saveStudent(@RequestParam("groupId") Long groupId,Model model) {
         model.addAttribute("student", new Student());
         return "/student/newStudent";
     }
 
-    @PostMapping("/saveStudent/{groupId}")
-    public String createStudent(@ModelAttribute("student") Student student, @PathVariable Long groupId) {
-        System.out.println("before saveStudent");
-        student.setGroups(groupService.getById(groupId));
+    @PostMapping("/saveStudent")
+    public String createStudent(@ModelAttribute("student") Student student, @RequestParam("groupId") Long courseId) {
+        student.setGroups(groupService.getById(courseId));
         service.saveStudent(student);
-        System.out.println("after saveStudent");
-        return "redirect:/students?groupId="+groupId;
+        return "redirect:/students?groupId="+courseId;
     }
 
     @GetMapping("/{id}/edit")

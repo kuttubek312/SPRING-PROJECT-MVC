@@ -34,7 +34,7 @@ public class CourseController {
                 }
             }
         } catch (NullPointerException e) {
-            System.out.println("It is empty!");
+            System.out.println("It is empty");
         }
         model.addAttribute("course", courses);
         return "/course/course_page";
@@ -72,4 +72,5 @@ public class CourseController {
         service.removeCourseById(id);
         return "redirect:/courses?companyId=" + companyId;
     }
+
 }

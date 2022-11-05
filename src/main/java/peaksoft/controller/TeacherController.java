@@ -36,7 +36,7 @@ public class TeacherController {
                 }
             }
         } catch (NullPointerException e) {
-            System.out.println("It is empty!");
+            System.out.println("It is empty");
         }
         model.addAttribute("teachers", teachers);
         return "/teacher/teacher-page";
